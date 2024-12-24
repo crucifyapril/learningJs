@@ -1,11 +1,11 @@
 // let - переменная, которая может менять свое значение ( ; не обязателен и не несет ошибок в синтаксисе )
 
-let num = 42
-let firstName = 'Aida'
+// let num = 42
+// let firstName = 'Aida'
 
 // можно менять значение переменной без команды let
 
-num = 50
+// num = 50
 
 // константы - переменная, которая не может менять свое значение
 
@@ -38,4 +38,53 @@ const isProgrammer = true
 
 // конкатенация в js
 
-const fullName = firstName + ' ' + 'Parks'
+// const fullName = firstName + ' ' + 'Parks'
+
+// начинаем создавать калькулятор
+
+const resultElement = document.getElementById('result')
+const input1 = document.getElementById('input1')
+const input2 = document.getElementById('input2')
+const plusButton = document.getElementById('plus')
+const minusButton = document.getElementById('minus')
+const multiplyButton = document.getElementById('multiply')
+const divideButton = document.getElementById('divide')
+const submitButton = document.getElementById('submit')
+
+plusButton.onclick = function () {
+    action = '+'
+}
+
+minusButton.onclick = function () {
+    action = '-'
+}
+
+multiplyButton.onclick = function () {
+    action = '*'
+}
+
+divideButton.onclick = function () {
+    action = '/'
+}
+
+function computeNumbersWithAction(inp1, inp2, actionSymbol) {
+    const num1 = Number(inp1.value)
+    const num2 = Number(inp2.value)
+
+    if (actionSymbol === '+') {
+        return num1 + num2
+    }
+    if (actionSymbol === '-') {
+        return num1 - num2
+    }
+    if (actionSymbol === '*') {
+        return num1 * num2
+    }
+    if (actionSymbol === '/') {
+        return num1 / num2
+    }
+}
+
+submitButton.onclick = function () {
+    resultElement.textContent = computeNumbersWithAction(input1, input2, action)
+}
